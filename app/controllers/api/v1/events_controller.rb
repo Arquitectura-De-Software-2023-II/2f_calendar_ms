@@ -4,8 +4,8 @@ class Api::V1::EventsController < ApplicationController
     render json: event, status:200
   end
 
-  def read
-    event = Event.find(params[:id])
+  def show
+    event = Event.find_by(id: params[:id])
     if event
       render json: event, status: 200
     else

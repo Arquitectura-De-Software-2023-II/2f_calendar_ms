@@ -3,12 +3,12 @@ class Api::V1::PetsController < ApplicationController
     pet = Pet.all
     render json: pet, status:200
   end
-  def read
-    pet = Pet.find(params[:id])
+  def show
+    pet = Pet.find_by(id: params[:id])
     if pet
       render json: pet, status: 200
     else
-      render json: { error: 'No se encontró el registro de la mascota' }
+      render json: { error: 'No se encontró o no existe el registro de la mascota' }
     end
   end
 
@@ -31,17 +31,17 @@ class Api::V1::PetsController < ApplicationController
         pet_id: pet_params[:pet_id],
         name: pet_params[:name],
         breed: pet_params[:breed])
-      render json: pet, status: 200
+        render json: "Datos de la mascota actualizados", status: 200
       else
         render json: { error: 'No se pudo actualizar el registro de la mascota' }
       end
   end
 
   def destroy
-    pet = Pet.find(params[:pet_id])
+    pet = Pet.find(params[:id])
     if pet
       pet.destroy
-      render json: { message: 'Registro eliminado correctamente' }, status: 200
+      render json: { message: 'Registro de mascota eliminado correctamente' }, status: 200
     else
       render json: { error: 'Ese registro de mascota no existe o ya fue eliminado' }
     end

@@ -4,8 +4,8 @@ class Api::V1::ClientsController < ApplicationController
     render json: client, status:200
   end
 
-  def read
-    client = Client.find(params[:id])
+  def show
+    client = Client.find_by(id: params[:id])
     if client
       render json: client, status: 200
     else

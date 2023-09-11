@@ -4,8 +4,8 @@ class Api::V1::DaysController < ApplicationController
     render json: day, status:200
   end
 
-  def read
-    day = Day.find(params[:id])
+  def show
+    day = Day.find_by(id: params[:id])
     if day
       render json: day, status: 200
     else
