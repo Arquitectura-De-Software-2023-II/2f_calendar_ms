@@ -485,3 +485,598 @@ Migrating to AddClientIdToPet (20230911013333)
   [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  [1m[36mEvent Load (9.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (110.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (57.0ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (54.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (64.7ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (79.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (68.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (64.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (65.9ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["updated_at", "2023-09-11 17:01:14.535576"], ["key", "schema_sha1"]]
+  [1m[36mTRANSACTION (63.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (52.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (46.2ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (48.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (56.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (54.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (60.1ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (42.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230911013333)[0m
+  [1m[35m (48.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230911013202),
+(20230911013306);
+
+[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "development"], ["updated_at", "2023-09-11 17:01:15.201225"], ["key", "environment"]]
+  [1m[36mTRANSACTION (50.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2023-09-11 17:01:15.260017"], ["key", "environment"]]
+  [1m[36mTRANSACTION (51.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["updated_at", "2023-09-11 17:01:15.318301"], ["key", "schema_sha1"]]
+  [1m[36mTRANSACTION (52.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (57.4ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (79.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (64.0ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[35m (73.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (86.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230911013333)[0m
+  [1m[35m (57.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230910232936),
+(20230910233033),
+(20230910233125),
+(20230911005610),
+(20230911013202),
+(20230911013306);
+
+[0m
+  [1m[35m (81.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-11 17:01:43.115789"], ["updated_at", "2023-09-11 17:01:43.115789"]]
+  [1m[36mTRANSACTION (95.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["created_at", "2023-09-11 17:01:43.221424"], ["updated_at", "2023-09-11 17:01:43.221424"]]
+  [1m[36mTRANSACTION (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (83.6ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (81.0ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (75.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (72.1ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[35m (59.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (62.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230911013333)[0m
+  [1m[35m (80.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230910232936),
+(20230910233033),
+(20230910233125),
+(20230911005610),
+(20230911013202),
+(20230911013306);
+
+[0m
+  [1m[35m (59.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-11 17:01:43.941489"], ["updated_at", "2023-09-11 17:01:43.941489"]]
+  [1m[36mTRANSACTION (65.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2023-09-11 17:01:44.015000"], ["key", "environment"]]
+  [1m[36mTRANSACTION (62.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["created_at", "2023-09-11 17:01:44.083543"], ["updated_at", "2023-09-11 17:01:44.083543"]]
+  [1m[36mTRANSACTION (83.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (90.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (48.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (63.6ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (73.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (82.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (74.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (51.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (55.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (59.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (66.2ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (77.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (66.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (73.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (77.8ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "development"], ["updated_at", "2023-09-11 17:02:31.935262"], ["key", "environment"]]
+  [1m[36mTRANSACTION (94.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2023-09-11 17:02:32.036378"], ["key", "environment"]]
+  [1m[36mTRANSACTION (44.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (85.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (74.9ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (73.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (83.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (72.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (65.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (65.7ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (59.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (50.8ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (63.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (67.2ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (82.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (82.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (64.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (70.5ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (2.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "development"], ["updated_at", "2023-09-11 17:05:23.399844"], ["key", "environment"]]
+  [1m[36mTRANSACTION (64.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2023-09-11 17:05:23.474070"], ["key", "environment"]]
+  [1m[36mTRANSACTION (66.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (77.9ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (58.3ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[35m (55.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (83.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230911013333)[0m
+  [1m[35m (69.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230910232936),
+(20230910233033),
+(20230910233125),
+(20230911005610),
+(20230911013202),
+(20230911013306);
+
+[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-11 17:10:48.282005"], ["updated_at", "2023-09-11 17:10:48.282005"]]
+  [1m[36mTRANSACTION (67.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["created_at", "2023-09-11 17:10:48.361484"], ["updated_at", "2023-09-11 17:10:48.361484"]]
+  [1m[36mTRANSACTION (74.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients"[0m
+  [1m[35m (66.3ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "days"[0m
+  [1m[35m (57.0ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "name" varchar, "available" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "pet_id" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (46.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "client_ID" varchar, "creator_ID" varchar, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "day_id" varchar)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets"[0m
+  [1m[35m (56.2ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" varchar, "name" varchar, "breed" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "client_id" varchar)[0m
+  [1m[35m (48.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (53.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230911013333)[0m
+  [1m[35m (50.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230910232936),
+(20230910233033),
+(20230910233125),
+(20230911005610),
+(20230911013202),
+(20230911013306);
+
+[0m
+  [1m[35m (63.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-11 17:10:48.942312"], ["updated_at", "2023-09-11 17:10:48.942312"]]
+  [1m[36mTRANSACTION (61.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2023-09-11 17:10:49.011980"], ["key", "environment"]]
+  [1m[36mTRANSACTION (59.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "7892628fee9bcda6e12746bda2d7c6738a78da55"], ["created_at", "2023-09-11 17:10:49.077348"], ["updated_at", "2023-09-11 17:10:49.077348"]]
+  [1m[36mTRANSACTION (59.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (2.5ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", "1193541561"], ["status", 0], ["created_at", "2023-09-11 17:12:29.637891"], ["updated_at", "2023-09-11 17:12:29.637891"]]
+  [1m[36mTRANSACTION (96.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (1.4ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", "1193541561"], ["status", 0], ["created_at", "2023-09-11 17:14:04.234499"], ["updated_at", "2023-09-11 17:14:04.234499"]]
+  [1m[36mTRANSACTION (85.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (1.2ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", "1193541561"], ["status", 0], ["created_at", "2023-09-11 17:15:08.223245"], ["updated_at", "2023-09-11 17:15:08.223245"]]
+  [1m[36mTRANSACTION (72.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClient Create (1.1ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", "1193541561"], ["status", 0], ["created_at", "2023-09-11 17:16:00.879101"], ["updated_at", "2023-09-11 17:16:00.879101"]]
+  [1m[36mTRANSACTION (89.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("pet_id", "name", "breed", "created_at", "updated_at", "client_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["pet_id", "666"], ["name", "Cerberus"], ["breed", "Dummy"], ["created_at", "2023-09-11 17:16:00.986575"], ["updated_at", "2023-09-11 17:16:00.986575"], ["client_id", nil]]
+  [1m[36mTRANSACTION (94.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDay Create (1.3ms)[0m  [1m[32mINSERT INTO "days" ("cod", "name", "available", "created_at", "updated_at", "pet_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["cod", 1], ["name", "Monday"], ["available", 0], ["created_at", "2023-09-11 17:16:01.100808"], ["updated_at", "2023-09-11 17:16:01.100808"], ["pet_id", nil]]
+  [1m[36mTRANSACTION (102.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (2.6ms)[0m  [1m[32mINSERT INTO "events" ("cod", "title", "description", "begin", "end", "client_ID", "creator_ID", "event_type", "editable", "created_at", "updated_at", "day_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["cod", 1], ["title", "Evento test"], ["description", "Este es un evento dummy"], ["begin", "2023-09-11 00:46:19.228642"], ["end", "2023-09-11 00:46:19.228642"], ["client_ID", "123456789"], ["creator_ID", "987654321"], ["event_type", "Dummy"], ["editable", 1], ["created_at", "2023-09-11 17:16:01.243649"], ["updated_at", "2023-09-11 17:16:01.243649"], ["day_id", nil]]
+  [1m[36mTRANSACTION (75.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDay Create (1.2ms)[0m  [1m[32mINSERT INTO "days" ("cod", "name", "available", "created_at", "updated_at", "pet_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["cod", 1], ["name", "Tuesday"], ["available", 0], ["created_at", "2023-09-11 17:16:01.353002"], ["updated_at", "2023-09-11 17:16:01.353002"], ["pet_id", nil]]
+  [1m[36mTRANSACTION (73.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("pet_id", "name", "breed", "created_at", "updated_at", "client_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["pet_id", "777"], ["name", "Fefnir"], ["breed", "Dummy"], ["created_at", "2023-09-11 17:16:01.432712"], ["updated_at", "2023-09-11 17:16:01.432712"], ["client_id", nil]]
+  [1m[36mTRANSACTION (70.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-09-11 12:38:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 83.6ms | Allocations: 706)
+Completed 200 OK in 409ms (Views: 150.4ms | ActiveRecord: 0.0ms | Allocations: 8119)
+
+
+Started GET "/" for 127.0.0.1 at 2023-09-11 12:38:20 -0500
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"title"=>"Prueba cfierro again", "body"=>"Categoría de ejemplo propia para sqlite nuevo", "author"=>"cfierro", "welcome"=>{"title"=>"Prueba cfierro again", "body"=>"Categoría de ejemplo propia para sqlite nuevo", "author"=>"cfierro"}}
+  Rendering C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 272)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 915)
+
+
+Started GET "/api" for 127.0.0.1 at 2023-09-11 12:38:44 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2023-09-11 12:39:23 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/CRUD" for 127.0.0.1 at 2023-09-11 12:39:38 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/CRUD"):
+  
+Started GET "/api/v1/CRUD" for 127.0.0.1 at 2023-09-11 12:40:54 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/CRUD"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:41:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:44:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/events" for 127.0.0.1 at 2023-09-11 12:45:40 -0500
+  
+ActionController::RoutingError (uninitialized constant Api::V1::EventsController):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:45:49 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:52:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2023-09-11 12:52:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/" for 127.0.0.1 at 2023-09-11 12:53:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:53:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:54:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:56:01 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started POST "/api/v1/crud" for 127.0.0.1 at 2023-09-11 12:56:04 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/crud"):
+  
+Started POST "/api/v1/event" for 127.0.0.1 at 2023-09-11 12:56:10 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/event"):
+  
+Started GET "/api/v1/event/" for 127.0.0.1 at 2023-09-11 12:56:16 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/event"):
+  
+Started GET "/api/v1/event/" for 127.0.0.1 at 2023-09-11 12:59:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/event"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:00:32 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:00:53 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started POST "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:00:59 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/crud"):
+  
+Started POST "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:01:06 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:02:05 -0500
+  
+SyntaxError (D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/crud_controller.rb:19: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...ender json: event, status: :200
+...                            ^~~
+D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input):
+  
+app/controllers/api/v1/crud_controller.rb:19: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input
+app/controllers/api/v1/crud_controller.rb:19: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:02:54 -0500
+  
+SyntaxError (D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input):
+  
+app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input
+app/controllers/api/v1/crud_controller.rb:38: syntax error, unexpected end-of-input
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:03:16 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 107ms (Views: 38.0ms | ActiveRecord: 2.1ms | Allocations: 12535)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 13:16:06 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 3.9ms | Allocations: 1137)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:06:35 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 223ms (Views: 168.4ms | ActiveRecord: 10.1ms | Allocations: 1135)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:11:19 -0500
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CrudController):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:11:48 -0500
+  
+ActionController::RoutingError (uninitialized constant Api::V1::CrudController):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:11:57 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:12:05 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/event/" for 127.0.0.1 at 2023-09-11 16:12:13 -0500
+  
+Zeitwerk::NameError (expected file D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/event_controller.rb to define constant Api::V1::EventController, but didn't):
+  
+zeitwerk (2.6.11) lib/zeitwerk/loader/callbacks.rb:25:in `on_file_autoloaded'
+zeitwerk (2.6.11) lib/zeitwerk/kernel.rb:31:in `require'
+activesupport (7.0.8) lib/active_support/inflector/methods.rb:278:in `const_get'
+activesupport (7.0.8) lib/active_support/inflector/methods.rb:278:in `constantize'
+activesupport (7.0.8) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.0.8) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.0.8) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (7.0.8) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (7.0.8) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.0.8) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.8) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/event/" for 127.0.0.1 at 2023-09-11 16:12:49 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/event"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 16:12:55 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 5155)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:08 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:19 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/crud"):
+  
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:25 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 76ms (Views: 45.3ms | ActiveRecord: 1.6ms | Allocations: 12540)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:31 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 962)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:22:33 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 951)
+
+
+Started GET "/api/v1/crud/" for 127.0.0.1 at 2023-09-11 17:23:23 -0500
+Processing by Api::V1::CrudController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/crud_controller.rb:4:in `index'
+Completed 200 OK in 18ms (Views: 12.3ms | ActiveRecord: 2.0ms | Allocations: 5154)
+
+
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-09-11 17:23:38 -0500
+Processing by Api::V1::PetsController#index as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 525)
+
+
+  
+NameError (undefined local variable or method `event' for #<Api::V1::PetsController:0x00000000012340>):
+  
+app/controllers/api/v1/pets_controller.rb:4:in `index'
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-09-11 17:23:44 -0500
+Processing by Api::V1::PetsController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 727)
+
+
+  
+NameError (undefined local variable or method `event' for #<Api::V1::PetsController:0x00000000016b70>):
+  
+app/controllers/api/v1/pets_controller.rb:4:in `index'
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-09-11 17:23:58 -0500
+Processing by Api::V1::PetsController#index as */*
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 1.9ms | Allocations: 5461)
+
+
