@@ -1,39 +1,22 @@
 class Api::V1::CrudController < ApplicationController
   def index
-    event = Event.all
-    render json: event, status:200
+    render json:  { message: "Aquí está todo" }
   end
 
   def create
-    event = Event.new(
-      cod: event_params[:cod],
-      title: event_params[:title],
-      description: event_params[:description],
-      begin: event_params[:begin],
-      end: event_params[:end],
-      client_ID: event_params[:client_ID],
-      creator_ID: event_params[:creator_ID],
-      event_type: event_params[:event_type],
-      editable: event_params[:editable])
-    if event.save
-      render json: event, status: 200
-    else
-      render json:  { error: 'No se pudo crear el evento' }
-    end
+      render json:  { message: "Se creó algo" }
   end
 
   def read
+    render json:  { message: "Se encontró esto" }
   end
 
   def update
+    render json:  { message: "Se actualizó algo" }
   end
 
   def destroy
+    render json:  { message: "Se borró algo" }
   end
 
-  private
-  
-    def event_params
-      params.require(:event).permit(:cod, :title, :description, :begin, :end, :client_ID, :creator_ID, :event_type, :editable)
-    end
 end
