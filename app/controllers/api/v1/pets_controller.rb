@@ -3,7 +3,6 @@ class Api::V1::PetsController < ApplicationController
     pet = Pet.all
     render json: pet, status:200
   end
-
   def read
     pet = Pet.find(params[:id])
     if pet
