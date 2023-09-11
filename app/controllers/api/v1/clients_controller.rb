@@ -5,6 +5,12 @@ class Api::V1::ClientsController < ApplicationController
   end
 
   def read
+    client = Client.find(params[:id])
+    if client
+      render json: client, status: 200
+    else
+      render json: { error: 'No se encontró el cliente buscado' }
+    end
   end
 
   def create
