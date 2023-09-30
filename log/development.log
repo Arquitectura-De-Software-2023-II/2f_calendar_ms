@@ -1875,3 +1875,42 @@ Processing by Api::V1::EventsController#index as */*
 Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 950)
 
 
+Started GET "/" for 127.0.0.1 at 2023-09-30 11:38:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Users/camil/.local/share/gem/ruby/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.8ms | Allocations: 528)
+Completed 200 OK in 84ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-09-30 11:38:54 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:4:in `index'
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 1.3ms | Allocations: 6193)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-09-30 11:38:59 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}}
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000022ca2b22e58>, params: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}} }[0m
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000022ca2b22e58>, params: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}} }[0m
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000022ca2b22e58>, params: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:21:in `create'
+  [1m[36mPet Create (2.0ms)[0m  [1m[32mINSERT INTO "pets" ("pet_id", "name", "breed", "created_at", "updated_at", "client_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["pet_id", "1234"], ["name", "Pruebas"], ["breed", "Testy"], ["created_at", "2023-09-30 16:38:59.864508"], ["updated_at", "2023-09-30 16:38:59.864508"], ["client_id", nil]]
+  ↳ app/controllers/api/v1/pets_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (57.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:21:in `create'
+Completed 200 OK in 71ms (Views: 0.6ms | ActiveRecord: 59.4ms | Allocations: 3061)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-09-30 11:39:24 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy", "pet"=>{"id"=>5, "pet_id"=>"1234", "name"=>"Pruebas", "breed"=>"Testy"}}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:4:in `index'
+Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.3ms | Allocations: 1138)
+
+
