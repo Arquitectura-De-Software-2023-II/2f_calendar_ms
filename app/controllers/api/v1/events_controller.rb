@@ -9,7 +9,7 @@ class Api::V1::EventsController < ApplicationController
     if event
       render json: event, status: 200
     else
-      render json: { error: 'No se encontró el evento deseado' }
+      render json: { error: 'No se encontró el evento buscado' }
     end
   end
   def create
@@ -24,7 +24,7 @@ class Api::V1::EventsController < ApplicationController
       event_type: event_params[:event_type],
       editable: event_params[:editable])
     if event.save
-      render json: event, status: 200
+      render json: "Nuevo evento creado correctamente", status: 200
     else
       render json:  { error: 'No se pudo crear el evento' }
     end
@@ -53,7 +53,7 @@ class Api::V1::EventsController < ApplicationController
     event = Event.find(params[:id])
     if event
       event.destroy
-      render json: "Evento eliminado", status: 200
+      render json: "Evento eliminado correctamente", status: 200
     else
       render json: { error: 'Ese evento no existe o ya fue eliminado' }
     end
