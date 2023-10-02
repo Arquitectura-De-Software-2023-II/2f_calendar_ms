@@ -15,12 +15,10 @@ class Api::V1::PetsController < ApplicationController
   end
 
   def create
-    owner = Client.find_by(id: pet_params[:user_id])
+    owner = Client.find_by(user_id: params[:user_id])
     if owner
       pet = Pet.new(
         pet_id: pet_params[:pet_id],
-        name: pet_params[:name],
-        breed: pet_params[:breed],
         user_id: pet_params[:user_id]
       )
       if pet.save
@@ -57,6 +55,6 @@ class Api::V1::PetsController < ApplicationController
   private
   
     def pet_params
-      params.require(:pet).permit(:pet_id, :name, :breed)
+      params.require(:pet).permit(:pet_id, :user_id)
     end
 end

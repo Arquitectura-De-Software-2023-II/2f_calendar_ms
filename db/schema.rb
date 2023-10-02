@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_013333) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_11_005610) do
   create_table "clients", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "days", force: :cascade do |t|
-    t.integer "cod"
-    t.string "name"
-    t.boolean "available"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "pet_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -33,22 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_013333) do
     t.text "description"
     t.datetime "begin"
     t.datetime "end"
-    t.string "client_ID"
-    t.string "creator_ID"
+    t.integer "pet_id"
+    t.integer "creator_ID"
     t.string "event_type"
     t.boolean "editable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "day_id"
   end
 
   create_table "pets", force: :cascade do |t|
-    t.string "pet_id"
-    t.string "name"
-    t.string "breed"
+    t.integer "pet_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "client_id"
   end
 
 end

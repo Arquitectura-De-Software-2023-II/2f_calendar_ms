@@ -6,8 +6,8 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.text :description
       t.datetime :begin
       t.datetime :end
-      t.string :client_ID
-      t.string :creator_ID
+      t.integer :pet_id
+      t.integer :creator_ID
       t.string :event_type
       t.boolean :editable
 

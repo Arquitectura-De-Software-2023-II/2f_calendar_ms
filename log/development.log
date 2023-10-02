@@ -1919,3 +1919,320 @@ Started GET "/api/v1/days" for 127.0.0.1 at 2023-10-01 21:37:02 -0500
   
 ActionController::RoutingError (uninitialized constant Api::V1::DaysController):
   
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 00:55:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+LoadError (cannot load such file -- D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/app/controllers/api/v1/clients_controller.rb):
+  
+app/controllers/api/v1/pets_controller.rb:1:in `require_relative'
+app/controllers/api/v1/pets_controller.rb:1:in `<main>'
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 00:56:47 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "pet"=>{"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker"}}
+  [1m[36mPet Load (9.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 220ms (Views: 44.6ms | ActiveRecord: 10.9ms | Allocations: 8510)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 00:59:38 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+[31mUnpermitted parameters: :id, :client_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000023516ac29f0>, params: {"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}} }[0m
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 157ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 5526)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 01:01:11 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"9999", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 1140)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 01:01:16 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 1138)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 01:01:20 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+[31mUnpermitted parameters: :id, :client_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x00000235198267c0>, params: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}} }[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 830)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 01:03:35 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 1127)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:46:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 119ms (Views: 39.3ms | ActiveRecord: 1.0ms | Allocations: 8564)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:46:34 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}}
+[31mUnpermitted parameters: :id, :client_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x00000298619341c0>, params: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123}} }[0m
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2227)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:46:41 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123456789, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123456789}}
+[31mUnpermitted parameters: :id, :client_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x00000298608341b8>, params: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123456789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>123456789}} }[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 840)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:46:46 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+[31mUnpermitted parameters: :id, :client_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x000002985f704cf8>, params: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}} }[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 840)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:48:11 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 1473)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:48:20 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:48:43 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 1478)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:48:59 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 2870)
+
+
+Started GET "/api/v1/pets/1" for 127.0.0.1 at 2023-10-02 09:49:05 -0500
+Processing by Api::V1::PetsController#show as */*
+  Parameters: {"id"=>"1", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>"1", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 962)
+
+
+Started GET "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:49:17 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>5, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 1127)
+
+
+Started POST "/api/v1/pets" for 127.0.0.1 at 2023-10-02 09:49:24 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started GET "/api/v1/clients" for 127.0.0.1 at 2023-10-02 09:49:42 -0500
+Processing by Api::V1::ClientsController#index as */*
+  Parameters: {"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>6}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.8ms | Allocations: 3588)
+
+
+Started GET "/api/v1/clients/1" for 127.0.0.1 at 2023-10-02 09:49:47 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"1", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"1"}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 791)
+
+
+Started GET "/api/v1/clients/1" for 127.0.0.1 at 2023-10-02 09:50:08 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"1", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"1"}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 909)
+
+
+Started GET "/api/v1/clients/1" for 127.0.0.1 at 2023-10-02 09:50:14 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"1", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"1"}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started GET "/api/v1/clients/1193541561" for 127.0.0.1 at 2023-10-02 09:50:18 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"1193541561", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"1193541561"}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started GET "/api/v1/clients/1193541561" for 127.0.0.1 at 2023-10-02 09:50:23 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"1193541561", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"1193541561"}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started GET "/api/v1/clients/%221193541561%22" for 127.0.0.1 at 2023-10-02 09:50:25 -0500
+Processing by Api::V1::ClientsController#show as */*
+  Parameters: {"id"=>"\"1193541561\"", "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>"\"1193541561\""}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/clients_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 683)
+
+
+Started GET "/api/v1/clients/" for 127.0.0.1 at 2023-10-02 09:50:33 -0500
+Processing by Api::V1::ClientsController#index as */*
+  Parameters: {"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "client"=>{"id"=>6}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.7ms | Allocations: 2455)
+
+
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 09:51:03 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561, "pet"=>{"id"=>6, "pet_id"=>"55654165", "name"=>"Dockery", "breed"=>"Test_Docker", "client_id"=>1193541561}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 1.0ms | Allocations: 2867)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (79.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePets (20230910233033)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" integer, "owner_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233033"]]
+  [1m[36mTRANSACTION (91.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClients (20230910233125)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233125"]]
+  [1m[36mTRANSACTION (83.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEvents (20230911005610)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "pet_id" integer, "creator_ID" integer, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230911005610"]]
+  [1m[36mTRANSACTION (89.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-02 15:09:35.130795"], ["updated_at", "2023-10-02 15:09:35.130795"]]
+  [1m[36mTRANSACTION (79.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (75.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (79.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePets (20230910233033)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233033"]]
+  [1m[36mTRANSACTION (79.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClients (20230910233125)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233125"]]
+  [1m[36mTRANSACTION (74.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEvents (20230911005610)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "pet_id" integer, "creator_ID" integer, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230911005610"]]
+  [1m[36mTRANSACTION (75.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-02 15:10:56.443590"], ["updated_at", "2023-10-02 15:10:56.443590"]]
+  [1m[36mTRANSACTION (76.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/clients/" for 127.0.0.1 at 2023-10-02 10:14:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  Parameters: {"user_id"=>1193541561, "client"=>{"user_id"=>1193541561}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 49ms (Views: 1.8ms | ActiveRecord: 0.7ms | Allocations: 3219)
+
+
+Started POST "/api/v1/clients/" for 127.0.0.1 at 2023-10-02 10:14:40 -0500
+Processing by Api::V1::ClientsController#create as */*
+  Parameters: {"user_id"=>1193541561, "client"=>{"user_id"=>1193541561}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+  [1m[36mClient Create (1.1ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", "1193541561"], ["status", nil], ["created_at", "2023-10-02 15:14:40.419967"], ["updated_at", "2023-10-02 15:14:40.419967"]]
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (63.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+Completed 200 OK in 84ms (Views: 0.6ms | ActiveRecord: 64.9ms | Allocations: 6559)
+
+
+  [1m[35m (86.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (82.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePets (20230910233033)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pet_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233033"]]
+  [1m[36mTRANSACTION (87.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClients (20230910233125)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "status" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230910233125"]]
+  [1m[36mTRANSACTION (85.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEvents (20230911005610)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" integer, "title" varchar, "description" text, "begin" datetime(6), "end" datetime(6), "pet_id" integer, "creator_ID" integer, "event_type" varchar, "editable" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230911005610"]]
+  [1m[36mTRANSACTION (70.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-02 15:15:29.546633"], ["updated_at", "2023-10-02 15:15:29.546633"]]
+  [1m[36mTRANSACTION (76.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
