@@ -2374,3 +2374,60 @@ Processing by Api::V1::EventsController#index as */*
 Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 974)
 
 
+Started GET "/api/v1/events/" for 127.0.0.1 at 2023-10-02 10:45:06 -0500
+  
+SyntaxError (D:/Camilo/Camilo/calendar_ms/app/controllers/api/v1/events_controller.rb:74: syntax error, unexpected end-of-input):
+  
+app/controllers/api/v1/events_controller.rb:74: syntax error, unexpected end-of-input
+app/controllers/api/v1/events_controller.rb:74: syntax error, unexpected end-of-input
+Started GET "/api/v1/events/" for 127.0.0.1 at 2023-10-02 10:45:41 -0500
+Processing by Api::V1::EventsController#index as */*
+  Parameters: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"12356", "event_type"=>"Dummy", "editable"=>1, "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"12356", "event_type"=>"Dummy", "editable"=>1}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 1.2ms | Allocations: 3604)
+
+
+Started POST "/api/v1/events/" for 127.0.0.1 at 2023-10-02 10:45:45 -0500
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"12356", "event_type"=>"Dummy", "editable"=>1, "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"12356", "event_type"=>"Dummy", "editable"=>1}}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."pet_id" = ? LIMIT ?[0m  [["pet_id", 789], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 12356], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:17:in `create'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3220)
+
+
+Started POST "/api/v1/events/" for 127.0.0.1 at 2023-10-02 10:46:06 -0500
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."pet_id" = ? LIMIT ?[0m  [["pet_id", 789], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 1193541561], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:17:in `create'
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+[31mUnpermitted parameter: :pet_id. Context: { controller: Api::V1::EventsController, action: create, request: #<ActionDispatch::Request:0x000002281898f200>, params: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "controller"=>"api/v1/events", "action"=>"create", "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/events_controller.rb:30:in `create'
+  [1m[36mEvent Create (1.9ms)[0m  [1m[32mINSERT INTO "events" ("cod", "title", "description", "begin", "end", "pet_id", "creator_ID", "event_type", "editable", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["cod", 20], ["title", "Evento test"], ["description", "Este es un evento dummy"], ["begin", "2023-09-11 00:46:19.228642"], ["end", "2023-09-11 00:46:19.228642"], ["pet_id", nil], ["creator_ID", 1193541561], ["event_type", "Dummy"], ["editable", 1], ["created_at", "2023-10-02 15:46:06.451579"], ["updated_at", "2023-10-02 15:46:06.451579"]]
+  ↳ app/controllers/api/v1/events_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (71.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/events_controller.rb:30:in `create'
+Completed 200 OK in 98ms (Views: 0.2ms | ActiveRecord: 74.2ms | Allocations: 6047)
+
+
+Started GET "/api/v1/events/" for 127.0.0.1 at 2023-10-02 10:46:17 -0500
+Processing by Api::V1::EventsController#index as */*
+  Parameters: {"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1, "event"=>{"cod"=>20, "title"=>"Evento test", "description"=>"Este es un evento dummy", "begin"=>"2023-09-11 00:46:19.228642", "end"=>"2023-09-11 00:46:19.228642", "pet_id"=>"789", "creator_ID"=>"1193541561", "event_type"=>"Dummy", "editable"=>1}}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 1200)
+
+
