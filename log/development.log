@@ -2236,3 +2236,94 @@ Migrating to CreateEvents (20230911005610)
   [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-02 15:15:29.546633"], ["updated_at", "2023-10-02 15:15:29.546633"]]
   [1m[36mTRANSACTION (76.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/clients/" for 127.0.0.1 at 2023-10-02 10:26:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  Parameters: {"user_id"=>1193541561, "client"=>{"user_id"=>1193541561}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 19ms (Views: 2.2ms | ActiveRecord: 0.8ms | Allocations: 3219)
+
+
+Started POST "/api/v1/clients/" for 127.0.0.1 at 2023-10-02 10:26:49 -0500
+Processing by Api::V1::ClientsController#create as */*
+  Parameters: {"user_id"=>1193541561, "client"=>{"user_id"=>1193541561}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+  [1m[36mClient Create (1.4ms)[0m  [1m[32mINSERT INTO "clients" ("user_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1193541561], ["status", nil], ["created_at", "2023-10-02 15:26:49.973619"], ["updated_at", "2023-10-02 15:26:49.973619"]]
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (73.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:21:in `create'
+Completed 200 OK in 97ms (Views: 0.7ms | ActiveRecord: 75.2ms | Allocations: 6544)
+
+
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:27:43 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"user_id"=>1193541561, "pet_id"=>789, "pet"=>{"pet_id"=>789, "user_id"=>1193541561}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 845)
+
+
+Started POST "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:27:46 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"user_id"=>1193541561, "pet_id"=>789, "pet"=>{"pet_id"=>789, "user_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 1193541561], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x000002281687fe70>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x000002281687fe70>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x000002281687fe70>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x000002281687fe70>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms | Allocations: 3898)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'name' for Pet.):
+  
+app/controllers/api/v1/pets_controller.rb:20:in `create'
+Started POST "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:29:35 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"user_id"=>1193541561, "pet_id"=>789, "pet"=>{"pet_id"=>789, "user_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 1193541561], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000022818441af0>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::PetsController, action: create, request: #<ActionDispatch::Request:0x0000022818441af0>, params: {"user_id"=>1193541561, "pet_id"=>789, "controller"=>"api/v1/pets", "action"=>"create", "pet"=>{"pet_id"=>789, "user_id"=>1193541561}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("pet_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["pet_id", 789], ["user_id", nil], ["created_at", "2023-10-02 15:29:37.434775"], ["updated_at", "2023-10-02 15:29:37.434775"]]
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (85.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+Completed 200 OK in 104ms (Views: 0.7ms | ActiveRecord: 89.0ms | Allocations: 5915)
+
+
+Started POST "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:30:37 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"user_id"=>1193541561, "pet_id"=>789, "pet"=>{"pet_id"=>789, "user_id"=>1193541561}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 1193541561], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+  [1m[36mPet Create (1.5ms)[0m  [1m[32mINSERT INTO "pets" ("pet_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["pet_id", 789], ["user_id", 1193541561], ["created_at", "2023-10-02 15:30:39.078036"], ["updated_at", "2023-10-02 15:30:39.078036"]]
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (75.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:24:in `create'
+Completed 200 OK in 92ms (Views: 0.6ms | ActiveRecord: 79.3ms | Allocations: 5751)
+
+
+Started GET "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:30:51 -0500
+Processing by Api::V1::PetsController#index as */*
+  Parameters: {"user_id"=>1193541561, "pet_id"=>789, "pet"=>{"pet_id"=>789, "user_id"=>1193541561}}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  ↳ app/controllers/api/v1/pets_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 1056)
+
+
+Started POST "/api/v1/pets/" for 127.0.0.1 at 2023-10-02 10:31:01 -0500
+Processing by Api::V1::PetsController#create as */*
+  Parameters: {"user_id"=>123456, "pet_id"=>123, "pet"=>{"pet_id"=>123, "user_id"=>123456}}
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = ? LIMIT ?[0m  [["user_id", 123456], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pets_controller.rb:18:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 548)
+
+
