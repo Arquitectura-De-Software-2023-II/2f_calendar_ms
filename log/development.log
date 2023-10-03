@@ -4999,3 +4999,25 @@ ActionController::ParameterMissing (param is missing or the value is empty: even
   
 app/controllers/api/v1/events_controller.rb:96:in `event_params'
 app/controllers/api/v1/events_controller.rb:68:in `update'
+Started PUT "/api/v1/events/10501" for ::1 at 2023-10-03 06:14:10 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"cod\":10501,\"title\":\"Evento test API EDIT\",\"description\":\"Este es un evento dummy\",\"begin\":\"2023-09-11T00:46:19.228Z\",\"end\":\"2023-09-11T00:46:19.228Z\",\"pet_id\":7829,\"creator_ID\":1193541561,\"event_type\":\"Dummy\",\"editable\":true}", "id"=>"10501", "event"=>{}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."cod" = ? LIMIT ?[0m  [["cod", 10501], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:62:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/events_controller.rb:67:in `update'
+  [1m[36mEvent Update (2.3ms)[0m  [1m[33mUPDATE "events" SET "title" = ?, "pet_id" = ?, "updated_at" = ? WHERE "events"."id" = ?[0m  [["title", "Evento test API EDIT"], ["pet_id", 7829], ["updated_at", "2023-10-03 11:14:12.022485"], ["id", 30]]
+  ↳ app/controllers/api/v1/events_controller.rb:67:in `update'
+  [1m[36mTRANSACTION (52.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/events_controller.rb:67:in `update'
+Completed 200 OK in 83ms (Views: 0.2ms | ActiveRecord: 56.9ms | Allocations: 6439)
+
+
+Started GET "/api/v1/events/10501" for ::1 at 2023-10-03 06:14:19 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"10501"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."cod" = ? LIMIT ?[0m  [["cod", 10501], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 865)
+
+
