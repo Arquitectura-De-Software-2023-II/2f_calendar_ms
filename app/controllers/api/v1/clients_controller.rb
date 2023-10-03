@@ -5,7 +5,7 @@ class Api::V1::ClientsController < ApplicationController
   end
 
   def show
-    client = Client.find_by(user_id: params[:user_id])
+    client = Client.find_by(user_id: params[:id])
     if client
       render json: client, status: 200
     else
@@ -26,7 +26,7 @@ class Api::V1::ClientsController < ApplicationController
   end
 
   def update
-    client = Client.find(params[:id])
+    client = Client.find(params[:user_id])
     if client
       client.update(
         user_id: client_params[:user_id],

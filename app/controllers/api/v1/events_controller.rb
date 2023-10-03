@@ -5,7 +5,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def show
-    event = Event.find_by(id: params[:id])
+    event = Event.find_by(cod: params[:id])
     if event
       render json: event, status: 200
     else
@@ -41,7 +41,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
+    event = Event.find(params[:cod])
     if event
       event.update(
       cod: event_params[:cod],
@@ -49,7 +49,7 @@ class Api::V1::EventsController < ApplicationController
       description: event_params[:description],
       begin: event_params[:begin],
       end: event_params[:end],
-      client_ID: event_params[:client_ID],
+      pet_id: event_params[:pet_id],
       creator_ID: event_params[:creator_ID],
       event_type: event_params[:event_type],
       editable: event_params[:editable])
@@ -60,7 +60,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find(params[:id])
+    event = Event.find(params[:cod])
     if event
       event.destroy
       render json: "Evento eliminado correctamente", status: 200

@@ -6,7 +6,7 @@ class Api::V1::PetsController < ApplicationController
     render json: pet, status:200
   end
   def show
-    pet = Pet.find_by(id: params[:id])
+    pet = Pet.find_by(pet_id: params[:id])
     if pet
       render json: pet, status: 200
     else
@@ -31,11 +31,10 @@ class Api::V1::PetsController < ApplicationController
     end
   end
   def update
-    pet = Pet.find(params[:id])
+    pet = Pet.find(params[:pet_id])
       if pet.update(
         pet_id: pet_params[:pet_id],
-        name: pet_params[:name],
-        breed: pet_params[:breed])
+        user_id: pet_params[:user_id])
         render json: "Datos de la mascota actualizados", status: 200
       else
         render json: { error: 'No se pudo actualizar el registro de la mascota' }
