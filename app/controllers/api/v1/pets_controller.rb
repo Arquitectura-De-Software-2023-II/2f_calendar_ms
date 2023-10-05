@@ -40,14 +40,26 @@ class Api::V1::PetsController < ApplicationController
     end
   end
   def update
-    pet = Pet.find(params[:pet_id])
-      if pet.update(
-        pet_id: pet_params[:pet_id],
-        user_id: pet_params[:user_id])
-        render json: "Datos de la mascota actualizados", status: 200
+    request_data = JSON.parse(params['_json'])
+    owner = Client.find_by(user_id: request_data['user_id'])
+    pet = Pet.find_by(pet_id: params[:id])
+    if pet
+      if owner
+        if pet.update(
+          # pet_id: pet_params[:pet_id],
+          # user_id: pet_params[:user_id])
+          pet_id: request_data['pet_id'],
+          user_id: request_data['user_id'])
+          render json: {error:"Datos de la mascota actualizados"}, status: 200
+        else
+          render json: { error: 'No se pudo actualizar el registro de la mascota' }
+        end
       else
-        render json: { error: 'No se pudo actualizar el registro de la mascota' }
+        render json: { error: 'El dueño de la mascota actualizada no existe' }
       end
+    else
+      render json: { error: 'No se encontró esa mascota' }
+    end
   end
 
   def destroy

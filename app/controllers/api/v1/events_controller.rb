@@ -55,9 +55,6 @@ class Api::V1::EventsController < ApplicationController
     request_data = JSON.parse(params['_json'])
 
     event = Event.find_by(cod: params[:id])
-    puts '👀👀'
-    puts params[:id]
-    puts '👀👀'
     if event
       event.update(
       # cod: event_params[:cod],
