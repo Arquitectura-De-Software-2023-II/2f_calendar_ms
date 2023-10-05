@@ -18,15 +18,22 @@ class Api::V1::PetsController < ApplicationController
     request_data = JSON.parse(params['_json'])
 
     owner = Client.find_by(user_id: request_data['user_id'])
+    pet = Pet.find_by(pet_id: request_data['pet_id'])
     if owner
-      pet = Pet.new(
-        pet_id: pet_params[:pet_id],
-        user_id: pet_params[:user_id]
-      )
-      if pet.save
-        render json: pet, status: 200
+      if !pet
+        pet = Pet.new(
+          # pet_id: pet_params[:pet_id],
+          # user_id: pet_params[:user_id]
+          pet_id: request_data['pet_id'],
+          user_id: request_data['user_id']
+        )
+        if pet.save
+          render json: { error: 'Mascota agregada correctamente al calendario' }, status: 200
+        else
+          render json: { error: 'No se pudo crear el registro de la mascota' }
+        end
       else
-        render json: { error: 'No se pudo crear el registro de la mascota' }
+        render json: { error: 'La mascota ya existe' }
       end
     else
       render json: { error: 'El dueño de la mascota no existe' }
