@@ -14,14 +14,9 @@ class Api::V1::EventsController < ApplicationController
   end
   def create
     request_data = JSON.parse(params['_json'])
-    pet_id = request_data['pet_id']
-    creator_id = request_data['creator_ID']
   
     pet = Pet.find_by(pet_id: request_data['pet_id'])
     creator = Client.find_by(user_id: request_data['creator_ID'])
-    puts '🔥🔥'
-    puts request_data['pet_id']
-    puts '🔥🔥'
     if creator 
       if pet
         event = Event.new(

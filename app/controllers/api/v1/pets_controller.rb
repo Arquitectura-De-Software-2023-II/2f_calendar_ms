@@ -15,7 +15,9 @@ class Api::V1::PetsController < ApplicationController
   end
 
   def create
-    owner = Client.find_by(user_id: params[:user_id])
+    request_data = JSON.parse(params['_json'])
+
+    owner = Client.find_by(user_id: request_data['user_id'])
     if owner
       pet = Pet.new(
         pet_id: pet_params[:pet_id],
@@ -42,7 +44,7 @@ class Api::V1::PetsController < ApplicationController
   end
 
   def destroy
-    pet = Pet.find(params[:id])
+    pet = Pet.find_by(pet_id: params[:id])
     if pet
       pet.destroy
       render json: { message: 'Registro de mascota eliminado correctamente' }, status: 200
