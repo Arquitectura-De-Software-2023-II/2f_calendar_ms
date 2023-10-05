@@ -14,36 +14,47 @@ class Api::V1::ClientsController < ApplicationController
   end
 
   def create
-    client = Client.new(
-      user_id: client_params[:user_id],
-      status: client_params[:status]
-    )
-    if client.save
-      render json: client, status: 200
+    request_data = JSON.parse(params['_json'])
+    person = Client.find_by(user_id: request_data['user_id'])
+    if !person
+      client = Client.new(
+        # user_id: client_params[:user_id],
+        # status: client_params[:status]
+        user_id: request_data['user_id'],
+        status: request_data['status']
+      )
+      if client.save
+        render json: { error: 'Usuario creado correctamente en el calendario' }, status: 200
+      else
+        render json:  { error: 'No se pudo crear el usuario' }
+      end
     else
-      render json:  { error: 'No se pudo crear el usuario' }
+      render json:  { error: 'El usuario ya existe' }
     end
   end
 
   def update
-    client = Client.find(params[:user_id])
+    request_data = JSON.parse(params['_json'])
+    client = Client.find_by(user_id: params[:id])
     if client
       client.update(
-        user_id: client_params[:user_id],
-        status: client_params[:status]
+        # user_id: client_params[:user_id],
+        # status: client_params[:status]
+        user_id: request_data['user_id'],
+        status: request_data['status']
       )
-      render json: "Datos del usuario actualizados", status: 200
+      render json: {error:"Datos del usuario actualizados"}, status: 200
     else
-      render json:  { error: 'No se pudo actualizar el usuario' }
+      render json:  { error: 'Usuario no encontrado' }
     end
   end
 
 
   def destroy
-    client = Client.find(params[:id])
+    client = Client.find_by(user_id: params[:id])
     if client
       client.destroy
-      render json: "Usuario eliminado", status: 200
+      render json: {error:"Usuario eliminado"}, status: 200
     else
       render json: { error: 'Ese usuario no existe o ya fue eliminado' }
     end
