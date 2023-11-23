@@ -5727,3 +5727,49 @@ Processing by Api::V1::PetsController#show as */*
 Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 816)
 
 
+Started GET "/api/v1/clients" for 127.0.0.1 at 2023-11-22 21:45:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 268ms (Views: 56.0ms | ActiveRecord: 3.3ms | Allocations: 10140)
+
+
+Started GET "/api/v1/events" for 127.0.0.1 at 2023-11-22 21:45:35 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 93ms (Views: 79.7ms | ActiveRecord: 2.9ms | Allocations: 12466)
+
+
+Started GET "/api/v1/events/22" for 127.0.0.1 at 2023-11-22 21:45:45 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."cod" = ? LIMIT ?[0m  [["cod", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1828)
+
+
+Started GET "/api/v1/events/" for 127.0.0.1 at 2023-11-22 21:45:47 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 32ms (Views: 31.6ms | ActiveRecord: 0.5ms | Allocations: 5955)
+
+
+Started GET "/api/v1/events/4444" for 127.0.0.1 at 2023-11-22 21:45:51 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"4444"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."cod" = ? LIMIT ?[0m  [["cod", 4444], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 792)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDayIdToEvents (20231123025011)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE "events" ADD "day_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20231123025011"]]
+  [1m[36mTRANSACTION (55.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

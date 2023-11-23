@@ -18,7 +18,9 @@ class Api::V1::EventsController < ApplicationController
     pet = Pet.find_by(pet_id: request_data['pet_id'])
     creator = Client.find_by(user_id: request_data['creator_ID'])
     if creator 
+      puts '🧧'
       if pet
+        puts '🎃'
         event = Event.new(
           # cod: event_params[:cod],
           # title: event_params[:title],
@@ -37,7 +39,8 @@ class Api::V1::EventsController < ApplicationController
           pet_id: request_data['pet_id'],
           creator_ID: request_data['creator_ID'],
           event_type: request_data['event_type'],
-          editable: request_data['editable'])
+          editable: request_data['editable'],
+          day_id: request_data['day_id'])
         if event.save
           render json: { message: "Nuevo evento creado correctamente"}, status: 200
         else
