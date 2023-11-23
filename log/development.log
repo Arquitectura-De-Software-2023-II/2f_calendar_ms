@@ -1914,3 +1914,192 @@ Processing by Api::V1::PetsController#index as */*
 Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.3ms | Allocations: 1138)
 
 
+Started GET "/api/v1/clients" for 127.0.0.1 at 2023-11-19 23:24:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 144ms (Views: 42.5ms | ActiveRecord: 2.0ms | Allocations: 10291)
+
+
+Started GET "/api/v1/clients" for 127.0.0.1 at 2023-11-22 14:35:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 176ms (Views: 70.1ms | ActiveRecord: 2.0ms | Allocations: 8766)
+
+
+Started GET "/api/v1/clients" for 127.0.0.1 at 2023-11-22 17:23:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClientsController#index as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/controllers/api/v1/clients_controller.rb:4:in `index'
+Completed 200 OK in 294ms (Views: 79.2ms | ActiveRecord: 1.9ms | Allocations: 8765)
+
+
+Started GET "/" for ::1 at 2023-11-22 17:27:15 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 101.3ms | Allocations: 692)
+Completed 200 OK in 518ms (Views: 193.1ms | ActiveRecord: 0.0ms | Allocations: 7881)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 17:52:43 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (11.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 73ms (Views: 39.9ms | ActiveRecord: 12.9ms | Allocations: 8073)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 17:55:03 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.3ms | Allocations: 955)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 17:58:42 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 952)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 18:21:02 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 1.6ms | Allocations: 1126)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 18:22:35 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.4ms | Allocations: 952)
+
+
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 18:23:00 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 941)
+
+
+Started PUT "/api/v1/events/2666" for ::1 at 2023-11-22 18:23:50 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"day_id\":1}", "id"=>"2666", "event"=>{}}
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2666], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 404 Not Found in 336ms (ActiveRecord: 1.8ms | Allocations: 5625)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=2666):
+  
+app/controllers/api/v1/events_controller.rb:34:in `update'
+Started GET "/api/v1/events/" for ::1 at 2023-11-22 18:25:13 -0500
+Processing by Api::V1::EventsController#index as */*
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 941)
+
+
+Started GET "/api/v1/events/2" for ::1 at 2023-11-22 18:25:17 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 10ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 908)
+
+
+Started GET "/api/v1/events/2666" for ::1 at 2023-11-22 18:25:21 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"2666"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2666], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 543)
+
+
+Started GET "/api/v1/events/2" for ::1 at 2023-11-22 18:25:24 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 11ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 806)
+
+
+Started PUT "/api/v1/events/2" for ::1 at 2023-11-22 18:25:27 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"day_id\":1}", "id"=>"2", "event"=>{}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.3ms | Allocations: 588)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:64:in `event_params'
+app/controllers/api/v1/events_controller.rb:37:in `update'
+Started GET "/api/v1/events/2" for ::1 at 2023-11-22 18:25:56 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:8:in `show'
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 805)
+
+
+Started PUT "/api/v1/events/2" for ::1 at 2023-11-22 18:26:27 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"id\":2,\"cod\":2666,\"title\":\"Evento test 2\",\"description\":\"Este es un evento dummy 2 \",\"begin\":\"2023-09-13T00:46:19.228Z\",\"end\":\"2023-09-14T00:46:19.228Z\",\"client_ID\":\"111111111\",\"creator_ID\":\"123456789\",\"event_type\":\"Ymmub\",\"editable\":false,\"created_at\":\"2023-09-11T23:34:22.985Z\",\"updated_at\":\"2023-09-11T23:34:39.163Z\",\"day_id\":1}", "id"=>"2", "event"=>{}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.3ms | Allocations: 563)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:64:in `event_params'
+app/controllers/api/v1/events_controller.rb:37:in `update'
+Started PUT "/api/v1/events/2" for ::1 at 2023-11-22 18:35:30 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"id\":6,\"cod\":2598,\"title\":\"Evento test 2\",\"description\":\"Este es un evento dummy 2 \",\"begin\":\"2023-09-13T00:46:19.228Z\",\"end\":\"2023-09-14T00:46:19.228Z\",\"client_ID\":\"111111111\",\"creator_ID\":\"123456789\",\"event_type\":\"Ymmub\",\"editable\":false,\"created_at\":\"2023-09-11T23:34:22.985Z\",\"updated_at\":\"2023-09-11T23:34:39.163Z\",\"day_id\":1}", "id"=>"2", "event"=>{}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 400 Bad Request in 16ms (ActiveRecord: 1.6ms | Allocations: 3462)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:64:in `event_params'
+app/controllers/api/v1/events_controller.rb:37:in `update'
+Started PUT "/api/v1/events/2" for ::1 at 2023-11-22 18:35:54 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"id\":6,\"cod\":2598,\"title\":\"Evento test 2\",\"description\":\"Este es un evento dummy 2 \",\"begin\":\"2023-09-13T00:46:19.228Z\",\"end\":\"2023-09-14T00:46:19.228Z\",\"client_ID\":\"111111111\",\"creator_ID\":\"123456789\",\"event_type\":\"Ymmub\",\"editable\":false,\"created_at\":\"2023-09-11T23:34:22.985Z\",\"updated_at\":\"2023-09-11T23:34:39.163Z\",\"day_id\":1}", "id"=>"2", "event"=>{}}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.2ms | Allocations: 563)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:64:in `event_params'
+app/controllers/api/v1/events_controller.rb:37:in `update'
+Started PUT "/api/v1/events/2" for ::1 at 2023-11-22 18:36:07 -0500
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"_json"=>"{\"id\":6,\"cod\":2598,\"title\":\"Evento test 2\",\"description\":\"Este es un evento dummy 2 \",\"begin\":\"2023-09-13T00:46:19.228Z\",\"end\":\"2023-09-14T00:46:19.228Z\",\"client_ID\":\"111111111\",\"creator_ID\":\"123456789\",\"event_type\":\"Ymmub\",\"editable\":false,\"created_at\":\"2023-09-11T23:34:22.985Z\",\"updated_at\":\"2023-09-11T23:34:39.163Z\",\"day_id\":1}", "id"=>"2", "event"=>{}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:34:in `update'
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.4ms | Allocations: 563)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:64:in `event_params'
+app/controllers/api/v1/events_controller.rb:37:in `update'
