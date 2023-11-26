@@ -58,7 +58,9 @@ class Api::V1::EventsController < ApplicationController
     request_data = JSON.parse(params['_json'])
 
     event = Event.find_by(cod: params[:id])
+    
     if event
+      puts '🧨'
       event.update(
       # cod: event_params[:cod],
       # title: event_params[:title],
@@ -77,9 +79,11 @@ class Api::V1::EventsController < ApplicationController
       pet_id: request_data['pet_id'],
       creator_ID: request_data['creator_ID'],
       event_type: request_data['event_type'],
-      editable: request_data['editable'])
+      editable: request_data['editable'],
+      day_id: request_data['day_id'])
       render json: { message: "Datos del evento actualizados"} , status: 200
     else
+      puts '🎇'
       render json: { error: 'No se pudo actualizar la información del evento' }
     end
   end
